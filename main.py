@@ -34,6 +34,7 @@ class NXTCrane:
         if self.initialized:
             if isinstance(self.brick, nxt.brick.Brick):
                 self.brick.close()
+        self.initialized = False
 
     def turn_motor(self, motor_id: int, direction: bool, power: int):
         if self.initialized:
@@ -130,12 +131,12 @@ if __name__ == '__main__':
         print("Connected to NXT")
     motor1 = Motor(brick, 1, (pygame.K_UP, pygame.K_DOWN), (50, 50), (100, 50))
     motor2 = Motor(brick, 2, (pygame.K_LEFT, pygame.K_RIGHT), (160, 50), (100, 50))
+    # We reduce the power on extending the arm because it goes too fast otherwise
     motor2.power = 20
     motor3 = Motor(brick, 0, (pygame.K_PAGEUP, pygame.K_PAGEDOWN), (270, 50), (100, 50))
 
     while True:
         for event in pygame.event.get():
-
             if event.type == pygame.QUIT:
                 try:
                     brick.stop_all_motors()
