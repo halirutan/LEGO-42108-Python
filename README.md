@@ -1,4 +1,4 @@
-# Python and the LEGO 42108 crane
+# Python and the LEGO 42108 Crane
 
 Welcome to a journey into the world of LEGO and programming!
 My son has an incredible knack for building complex LEGO models far ahead of his years but doesn't do programming yet.
